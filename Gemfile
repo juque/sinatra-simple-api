@@ -7,3 +7,5 @@ gem "sinatra-contrib", "~> 3.1"
 gem "json", "~> 2.6"
 gem "sequel", "~> 5.74"
 gem "sqlite3", "~> 1.6"
+
+gem "sinatra-cors", "~> 1.2"

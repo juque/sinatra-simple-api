@@ -1,5 +1,9 @@
 require 'sinatra'
+require 'sinatra/json'
+require 'sinatra/cors'
 require 'sequel'
+
+set :allow_origin, "*"
 
 DB = Sequel.connect('sqlite://api.db')
 
@@ -16,12 +20,20 @@ end
 class Task < Sequel::Model
 end
 
+configure do
+  enable :cross_origin
+end
+
 before do
   content_type :json
 end
 
 get '/' do
   json({say: 'hi'})
+end
+
+get '/auth' do
+  json({isAuth: true})
 end
 
 get '/tasks' do
